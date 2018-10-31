@@ -21,7 +21,7 @@
  *  may have a different license, see the respective files.
  */
 
-package com.serenegiant.usbcameratest;
+package com.serenegiant.activities;
 
 import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
@@ -32,6 +32,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.serenegiant.common.BaseActivity;
@@ -45,6 +46,7 @@ import com.serenegiant.usb.USBMonitor.UsbControlBlock;
 import com.serenegiant.usb.UVCCamera;
 import com.serenegiant.widget.SimpleUVCCameraTextureView;
 
+import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 
 public final class MainActivity extends BaseActivity implements CameraDialog.CameraDialogParent {
@@ -58,11 +60,14 @@ public final class MainActivity extends BaseActivity implements CameraDialog.Cam
 	private ImageButton mCameraButton;
 	private Surface mPreviewSurface;
 	private ImageView imViewA;
+	public ByteArrayOutputStream mFrames;
+	public TextView infoip;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		infoip = (TextView) findViewById(R.id.infoip);
 		mCameraButton = (ImageButton)findViewById(R.id.camera_button);
 		mCameraButton.setOnClickListener(mOnClickListener);
 		imViewA = (ImageView) findViewById(R.id.imageViewA);
