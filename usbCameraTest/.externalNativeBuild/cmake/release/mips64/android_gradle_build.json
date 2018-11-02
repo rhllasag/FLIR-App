@@ -1,0 +1,49 @@
+
+{
+	"buildFiles" : 
+	[
+		"C:/Users/homer/Desktop/UAVsApp/UCB-BosonApp/usbCameraTest/CMakeLists.txt"
+	],
+	"cleanCommands" : 
+	[
+		"C:\\Users\\homer\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\Users\\homer\\Desktop\\UAVsApp\\UCB-BosonApp\\usbCameraTest\\.externalNativeBuild\\cmake\\release\\mips64 --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"lib_opencv-Release-mips64" : 
+		{
+			"abi" : "mips64",
+			"artifactName" : "lib_opencv",
+			"buildType" : "release",
+			"output" : "C:/Users/homer/Desktop/UAVsApp/UCB-BosonApp/usbCameraTest/src/main/jni/mips64/libopencv_java3.so",
+			"toolchain" : "4081909545"
+		},
+		"native-lib-Release-mips64" : 
+		{
+			"abi" : "mips64",
+			"artifactName" : "native-lib",
+			"buildCommand" : "C:\\Users\\homer\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\Users\\homer\\Desktop\\UAVsApp\\UCB-BosonApp\\usbCameraTest\\.externalNativeBuild\\cmake\\release\\mips64 --target native-lib",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=mips64el-none-linux-android --gcc-toolchain=C:/Users/android-ndk-r16b/toolchains/mips64el-linux-android-4.9/prebuilt/windows-x86_64 --sysroot=C:/Users/android-ndk-r16b/sysroot  -Dnative_lib_EXPORTS -IC:\\OpenCV-android-sdk\\sdk\\native\\jni\\include -I..\\..\\..\\..\\src\\main\\cpp\\include -isystem C:\\Users\\android-ndk-r16b\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include -isystem C:\\Users\\android-ndk-r16b\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\libs\\mips64\\include -isystem C:\\Users\\android-ndk-r16b\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include\\backward  -isystem C:/Users/android-ndk-r16b/sysroot/usr/include/mips64el-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fintegrated-as -Wa,--noexecstack -Wformat -Werror=format-security   -std=gnu++11 -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "C:/Users/homer/Desktop/UAVsApp/UCB-BosonApp/usbCameraTest/src/main/cpp/native-lib.cpp",
+					"workingDirectory" : "C:/Users/homer/Desktop/UAVsApp/UCB-BosonApp/usbCameraTest/.externalNativeBuild/cmake/release/mips64"
+				}
+			],
+			"output" : "C:/Users/homer/Desktop/UAVsApp/UCB-BosonApp/usbCameraTest/build/intermediates/cmake/release/obj/mips64/libnative-lib.so",
+			"toolchain" : "4081909545"
+		}
+	},
+	"toolchains" : 
+	{
+		"4081909545" : 
+		{
+			"cCompilerExecutable" : "C:/Users/android-ndk-r16b/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "C:/Users/android-ndk-r16b/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}

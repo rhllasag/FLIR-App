@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/libuvccamera" />
+            <option value="$PROJECT_DIR$/openCVLibrary343" />
             <option value="$PROJECT_DIR$/usbCameraCommon" />
             <option value="$PROJECT_DIR$/usbCameraTest" />
           </set>

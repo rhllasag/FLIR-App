@@ -24,3 +24,4 @@
 include ':libuvccamera'
 include ':usbCameraCommon'
 include ':usbCameraTest'
+include ':openCVLibrary343'

@@ -25,13 +25,8 @@ apply plugin: 'com.android.library'
 import org.apache.tools.ant.taskdefs.condition.Os
 
 android {
-	compileSdkVersion versionCompiler
-	buildToolsVersion versionBuildTool
-
-	compileOptions {
-		sourceCompatibility javaSourceCompatibility
-		targetCompatibility javaTargetCompatibility
-	}
+	compileSdkVersion 27
+	buildToolsVersion '27.0.3'
 
     defaultConfig {
         minSdkVersion 14

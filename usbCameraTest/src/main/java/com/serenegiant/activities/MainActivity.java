@@ -46,6 +46,8 @@ import com.serenegiant.usb.USBMonitor.UsbControlBlock;
 import com.serenegiant.usb.UVCCamera;
 import com.serenegiant.widget.SimpleUVCCameraTextureView;
 
+import org.opencv.android.OpenCVLoader;
+
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 
@@ -62,7 +64,17 @@ public final class MainActivity extends BaseActivity implements CameraDialog.Cam
 	private ImageView imViewA;
 	public ByteArrayOutputStream mFrames;
 	public TextView infoip;
+	static {
+		if(OpenCVLoader.initDebug()){
+			System.out.println("OpenCV ok");
 
+		}
+		else
+			System.out.println("OpenCV Not working");
+	}
+	static {
+		System.loadLibrary("native-lib");
+	}
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

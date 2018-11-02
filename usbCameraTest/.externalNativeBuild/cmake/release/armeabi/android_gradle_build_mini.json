@@ -1,0 +1,21 @@
+{
+  "buildFiles": [
+    "C:\\Users\\homer\\Desktop\\UAVsApp\\UCB-BosonApp\\usbCameraTest\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\homer\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\Users\\homer\\Desktop\\UAVsApp\\UCB-BosonApp\\usbCameraTest\\.externalNativeBuild\\cmake\\release\\armeabi --target clean"
+  ],
+  "libraries": {
+    "lib_opencv-Release-armeabi": {
+      "artifactName": "lib_opencv",
+      "abi": "armeabi",
+      "output": "C:\\Users\\homer\\Desktop\\UAVsApp\\UCB-BosonApp\\usbCameraTest\\src\\main\\jni\\armeabi\\libopencv_java3.so"
+    },
+    "native-lib-Release-armeabi": {
+      "artifactName": "native-lib",
+      "buildCommand": "C:\\Users\\homer\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\Users\\homer\\Desktop\\UAVsApp\\UCB-BosonApp\\usbCameraTest\\.externalNativeBuild\\cmake\\release\\armeabi --target native-lib",
+      "abi": "armeabi",
+      "output": "C:\\Users\\homer\\Desktop\\UAVsApp\\UCB-BosonApp\\usbCameraTest\\build\\intermediates\\cmake\\release\\obj\\armeabi\\libnative-lib.so"
+    }
+  }
+}
