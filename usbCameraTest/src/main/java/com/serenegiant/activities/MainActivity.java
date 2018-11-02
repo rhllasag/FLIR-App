@@ -36,6 +36,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.serenegiant.common.BaseActivity;
+import com.serenegiant.services.Assetbridge;
 import com.serenegiant.usb.CameraDialog;
 import com.serenegiant.usb.IButtonCallback;
 import com.serenegiant.usb.IFrameCallback;
@@ -47,6 +48,9 @@ import com.serenegiant.usb.UVCCamera;
 import com.serenegiant.widget.SimpleUVCCameraTextureView;
 
 import org.opencv.android.OpenCVLoader;
+import org.opencv.android.Utils;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
 
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
@@ -63,6 +67,7 @@ public final class MainActivity extends BaseActivity implements CameraDialog.Cam
 	private Surface mPreviewSurface;
 	private ImageView imViewA;
 	public ByteArrayOutputStream mFrames;
+
 	public TextView infoip;
 	static {
 		if(OpenCVLoader.initDebug()){
@@ -75,8 +80,10 @@ public final class MainActivity extends BaseActivity implements CameraDialog.Cam
 	static {
 		System.loadLibrary("native-lib");
 	}
+	private  native void humanDetection(long addrRgba);
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
+		Assetbridge.unpack(this);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		infoip = (TextView) findViewById(R.id.infoip);
@@ -225,7 +232,7 @@ public final class MainActivity extends BaseActivity implements CameraDialog.Cam
 					if (st != null) {
 						mPreviewSurface = new Surface(st);
 						camera.setPreviewDisplay(mPreviewSurface);
-						//camera.setFrameCallback(mIFrameCallback, UVCCamera.PIXEL_FORMAT_RGB565/*UVCCamera.PIXEL_FORMAT_NV21*/);
+						camera.setFrameCallback(mIFrameCallback, /*UVCCamera.PIXEL_FORMAT_RGB565*/UVCCamera.PIXEL_FORMAT_NV21);
 						camera.startPreview();
 					}
 					synchronized (mSync) {
@@ -302,6 +309,13 @@ public final class MainActivity extends BaseActivity implements CameraDialog.Cam
 			synchronized (bitmap) {
 				bitmap.copyPixelsFromBuffer(frame);
 				imViewA.invalidate();
+				Mat BGRImage = new Mat (bitmap.getWidth(), bitmap.getHeight(), CvType.CV_8UC3);
+				Utils.bitmapToMat(bitmap, BGRImage);
+				humanDetection(BGRImage.getNativeObjAddr());
+				Utils.matToBitmap(BGRImage,bitmap);
+				imViewA.setImageBitmap(bitmap);
+				mFrames =new ByteArrayOutputStream();
+				bitmap.compress(Bitmap.CompressFormat.JPEG, 100, mFrames);
 			}
 			imViewA.post(mUpdateImageTask);
 		}
